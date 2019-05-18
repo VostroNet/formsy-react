@@ -35,7 +35,11 @@ const convertValidationsToObject = (validations) => {
 const propTypes = {
   innerRef: PropTypes.func,
   name: PropTypes.string.isRequired,
-  required: PropTypes.bool,
+  required: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.string,
+  ]),
   validations: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,
@@ -212,7 +216,7 @@ export default (Component) => {
   };
 
   WrappedComponent.defaultProps = {
-    innerRef: () => {},
+    innerRef: null,
     required: false,
     validationError: '',
     validationErrors: {},

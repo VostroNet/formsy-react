@@ -41,7 +41,7 @@
 
 ### <a id="formsy">Formsy</a>
 
-`import Formsy from 'react-formsy';`
+`import Formsy from 'formsy-react';`
 
 #### <a id="mapping">mapping</a>
 
@@ -228,7 +228,7 @@ class MyForm extends React.Component {
 }
 ```
 
-With the `preventExternalInvalidation` the input will not be invalidated though it has an error.
+With the `preventExternalInvalidation` the input will not be invalidated though it has an error when `updateInputsWithError()` or an `invalidate` callback is called.
 
 ### <a id="withFormsy">`withFormsy`</a>
 
@@ -458,7 +458,7 @@ You can pre-verify a value against the passed validators to the form element.
 ```jsx
 class MyInput extends React.Component {
   changeValue = (event) => {
-    if (this.isValidValue(event.target.value)) {
+    if (this.props.isValidValue(event.target.value)) {
       this.props.setValue(event.target.value);
     }
   }
