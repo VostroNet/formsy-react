@@ -241,15 +241,15 @@ export class Formsy extends React.Component<FormsyProps, FormsyState> {
     this.resetModel(model);
   };
 
-  private resetInternal = (event) => {
-    const { onReset } = this.props;
+  // private resetInternal = (event) => {
+  //   const { onReset } = this.props;
 
-    event.preventDefault();
-    this.reset();
-    if (onReset) {
-      onReset();
-    }
-  };
+  //   event.preventDefault();
+  //   this.reset();
+  //   if (onReset) {
+  //     onReset();
+  //   }
+  // };
 
   // Reset each key in the model to the original / initial / specified value
   private resetModel: IResetModel = (data) => {
@@ -462,23 +462,23 @@ export class Formsy extends React.Component<FormsyProps, FormsyState> {
   };
 
   public render() {
-    const {
-      /* eslint-disable @typescript-eslint/no-unused-vars */
-      children,
-      mapping,
-      onChange,
-      onInvalid,
-      onInvalidSubmit,
-      onReset,
-      onSubmit,
-      onValid,
-      onValidSubmit,
-      preventDefaultSubmit,
-      preventExternalInvalidation,
-      validationErrors,
-      /* eslint-enable @typescript-eslint/no-unused-vars */
-      ...nonFormsyProps
-    } = this.props;
+    // const {
+    //   /* eslint-disable @typescript-eslint/no-unused-vars */
+    //   children,
+    //   mapping,
+    //   onChange,
+    //   onInvalid,
+    //   onInvalidSubmit,
+    //   onReset,
+    //   onSubmit,
+    //   onValid,
+    //   onValidSubmit,
+    //   preventDefaultSubmit,
+    //   preventExternalInvalidation,
+    //   validationErrors,
+    //   /* eslint-enable @typescript-eslint/no-unused-vars */
+    //   ...nonFormsyProps
+    // } = this.props;
     const { contextValue } = this.state;
 
     return React.createElement(
@@ -487,14 +487,14 @@ export class Formsy extends React.Component<FormsyProps, FormsyState> {
         value: contextValue,
       },
       React.createElement(
-        'form',
+        React.Fragment,
         {
-          onReset: this.resetInternal,
-          onSubmit: this.submit,
-          ...nonFormsyProps,
-          disabled: false,
+          // onReset: this.resetInternal,
+          // onSubmit: this.submit,
+          // ...nonFormsyProps,
+          // disabled: false,
         },
-        children,
+        this.props.children,
       ),
     );
   }
