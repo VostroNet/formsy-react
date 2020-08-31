@@ -1,5 +1,5 @@
 {
-  "name": "formsy-react",
+  "name": "@vostro/formsy-react-native",
   "version": "2.2.1",
   "description": "A form input builder and validator for React",
   "keywords": [
