@@ -1,9 +1,15 @@
-import isPlainObject from 'lodash.isplainobject';
-import PropTypes from 'prop-types';
-import React from 'react';
-import get from 'lodash.get';
-import has from 'lodash.has';
-import set from 'lodash.set';
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var isPlainObject = _interopDefault(require('lodash.isplainobject'));
+var PropTypes = _interopDefault(require('prop-types'));
+var React = _interopDefault(require('react'));
+var get = _interopDefault(require('lodash.get'));
+var has = _interopDefault(require('lodash.has'));
+var set = _interopDefault(require('lodash.set'));
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -27,21 +33,6 @@ function _inheritsLoose(subClass, superClass) {
   subClass.prototype = Object.create(superClass.prototype);
   subClass.prototype.constructor = subClass;
   subClass.__proto__ = superClass;
-}
-
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-
-  return target;
 }
 
 function _assertThisInitialized(self) {
@@ -736,18 +727,15 @@ var Formsy = /*#__PURE__*/function (_React$Component) {
       _this.setFormPristine(true);
 
       _this.resetModel(model);
-    };
-
-    _this.resetInternal = function (event) {
-      var onReset = _this.props.onReset;
-      event.preventDefault();
-
-      _this.reset();
-
-      if (onReset) {
-        onReset();
-      }
-    }; // Reset each key in the model to the original / initial / specified value
+    }; // private resetInternal = (event) => {
+    //   const { onReset } = this.props;
+    //   event.preventDefault();
+    //   this.reset();
+    //   if (onReset) {
+    //     onReset();
+    //   }
+    // };
+    // Reset each key in the model to the original / initial / specified value
 
 
     _this.resetModel = function (data) {
@@ -1004,19 +992,31 @@ var Formsy = /*#__PURE__*/function (_React$Component) {
   var _proto = Formsy.prototype;
 
   _proto.render = function render() {
-    var _this$props4 = this.props,
-        children = _this$props4.children,
-        nonFormsyProps = _objectWithoutPropertiesLoose(_this$props4, ["children", "mapping", "onChange", "onInvalid", "onInvalidSubmit", "onReset", "onSubmit", "onValid", "onValidSubmit", "preventDefaultSubmit", "preventExternalInvalidation", "validationErrors"]);
-
+    // const {
+    //   /* eslint-disable @typescript-eslint/no-unused-vars */
+    //   children,
+    //   mapping,
+    //   onChange,
+    //   onInvalid,
+    //   onInvalidSubmit,
+    //   onReset,
+    //   onSubmit,
+    //   onValid,
+    //   onValidSubmit,
+    //   preventDefaultSubmit,
+    //   preventExternalInvalidation,
+    //   validationErrors,
+    //   /* eslint-enable @typescript-eslint/no-unused-vars */
+    //   ...nonFormsyProps
+    // } = this.props;
     var contextValue = this.state.contextValue;
     return React.createElement(FormsyContext.Provider, {
       value: contextValue
-    }, React.createElement('form', _extends({
-      onReset: this.resetInternal,
-      onSubmit: this.submit
-    }, nonFormsyProps, {
-      disabled: false
-    }), children));
+    }, React.createElement(React.Fragment, {// onReset: this.resetInternal,
+      // onSubmit: this.submit,
+      // ...nonFormsyProps,
+      // disabled: false,
+    }, this.props.children));
   };
 
   return Formsy;
@@ -1051,6 +1051,9 @@ Formsy.defaultProps = {
   validationErrors: {}
 };
 
-export default Formsy;
-export { addValidationRule, propTypes, validations as validationRules, withFormsy };
-//# sourceMappingURL=formsy-react.esm.js.map
+exports.addValidationRule = addValidationRule;
+exports.default = Formsy;
+exports.propTypes = propTypes;
+exports.validationRules = validations;
+exports.withFormsy = withFormsy;
+//# sourceMappingURL=formsy-react-native.cjs.development.js.map

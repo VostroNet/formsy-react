@@ -19,7 +19,7 @@
   },
   "author": "Christian Alfoni and the Formsy Authors",
   "main": "dist/index.js",
-  "module": "dist/formsy-react.esm.js",
+  "module": "dist/formsy-react-native.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",

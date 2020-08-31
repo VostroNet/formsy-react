@@ -60,7 +60,6 @@ export declare class Formsy extends React.Component<FormsyProps, FormsyState> {
     isFormDisabled: () => boolean;
     mapModel: (model: IModel) => IModel;
     reset: (model?: IModel) => void;
-    private resetInternal;
     private resetModel;
     runValidation: <V>(component: InputComponent<V>, value?: V) => {
         isRequired: boolean;
